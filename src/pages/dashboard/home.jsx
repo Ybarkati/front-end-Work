@@ -81,7 +81,7 @@ export function Home() {
                       </td>
                       <td className={className}>
                         <Button>
-                          remove
+                          more ...
                         </Button>
                       </td>
                     </tr>

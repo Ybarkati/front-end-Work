@@ -86,18 +86,10 @@ export function Courses() {
                           className="text-xs font-semibold text-blue-gray-600"
                         >
                          
-                          <Button>Edit</Button>
+                          <Button>More ...</Button>
                           </Typography>
                           </td>
-                          <td className={className}>
-                        <Typography
                           
-                          className="text-xs font-semibold text-blue-gray-600"
-                        >
-                         
-                          <Button>delete</Button>
-                          </Typography>
-                          </td>
                     </tr>
                   );
                 }
