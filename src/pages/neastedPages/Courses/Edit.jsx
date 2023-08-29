@@ -48,8 +48,16 @@ import { useState } from "react";
         
         <Card>
           <CardHeader variant="gradient" color="blue" className="mb-8 p-6">
-            <Typography variant="h6" color="white">
-              Edit for <span>{params.id}</span>
+          <Typography variant="h6" color="white" className="flex w-full ">
+                <Link to={`/dashboard/courses/${params.id}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 absolute h-7">
+                       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                     </svg>
+                </Link>
+            
+                     
+           <h1 className="justify-self-center text-2xl text-center w-full "> Edit for {params.id}</h1>
+  
             </Typography>
           </CardHeader>
           <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
