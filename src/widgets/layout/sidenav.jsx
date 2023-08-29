@@ -65,7 +65,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
             )}
             {pages.map(({ icon, name, path }) => (
               <li key={name}>
-                <NavLink to={`/${layout}${path}`}>
+                <NavLink to={`/${layout}${path.slice(0, -2)}`}>
                   {({ isActive }) => (
                     <Button
                       variant={isActive ? "gradient" : "text"}
