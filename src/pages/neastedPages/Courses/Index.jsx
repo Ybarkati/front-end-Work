@@ -5,11 +5,20 @@ import {
     Typography,
     Avatar,
     Chip,
-    Button
+    Button,
+    Menu,
+    MenuHandler,
+    MenuList,
+    MenuItem,
+    IconButton,
     
   } from "@material-tailwind/react";
   import { homework } from "@/data";
-  
+  import {
+    
+    EllipsisVerticalIcon,
+    
+  } from "@heroicons/react/24/outline";
 import { Link ,useNavigate} from "react-router-dom";
   
   export function CoursesIndex() {
@@ -17,13 +26,27 @@ import { Link ,useNavigate} from "react-router-dom";
     const navigate=useNavigate()
     return (
       <div className="mt-12 mb-8 flex flex-col gap-12">
-        
-        <Button onClick={()=>navigate("edit")}>edit</Button>
         <Card>
-          <CardHeader variant="gradient" color="blue" className="mb-8 p-6">
+          <CardHeader variant="gradient" color="blue" className="mb-8 p-6 flex items-center justify-between">
             <Typography variant="h6" color="white">
               COURSES
             </Typography>
+            <Menu placement="left-start">
+              <MenuHandler>
+                <IconButton size="sm" variant="text" color="blue-gray">
+                  <EllipsisVerticalIcon
+                    strokeWidth={3}
+                    fill="currenColor"
+                    className="h-6 w-6 text-white"
+                  />
+                </IconButton>
+              </MenuHandler>
+              <MenuList>
+                <MenuItem> <Link to={"new"}>Add courses</Link>  </MenuItem>
+                
+                
+              </MenuList>
+            </Menu>
           </CardHeader>
           <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
             <table className="w-full min-w-[640px] table-auto">
@@ -89,7 +112,7 @@ import { Link ,useNavigate} from "react-router-dom";
                           
                             className="text-xs font-semibold text-blue-gray-600"
                           >
-                           <Link to={name}><Button>More ...</Button></Link>
+                           <Link to={`${name}`}><Button>More ...</Button></Link>
                             
                             </Typography>
                             </td>

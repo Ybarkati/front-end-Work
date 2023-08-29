@@ -12,6 +12,7 @@ import CoursesIndex from "./pages/neastedPages/Courses/Index";
 import { Home, Profile, Tables, Courses } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 import Show from "./pages/neastedPages/Courses/Show";
+import NewCourses from "./pages/neastedPages/Courses/New";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -82,6 +83,11 @@ export const routes = [
         element: <CourseEdit />,
       },
       {
+        name: "new",
+        path: "/new",
+        element: <NewCourses />,
+      },
+      {
         
         name: "id",
         path: "/:id",
@@ -101,13 +107,18 @@ export const routes = [
       
       {
         name: "edit",
-        path: "/edit",
+        path: "/e",
         element: <CourseEdit />,
+      },
+      {
+        name: "new",
+        path: "/new",
+        element: <NewCourses />,
       },
       {
         
         name: "id",
-        path: "/:id",
+        path: "/element/:id",
         element: <Show />,
       },
       

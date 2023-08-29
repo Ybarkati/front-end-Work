@@ -28,7 +28,7 @@ export function Courses() {
             ({ layout, pages }) =>
               layout === "Courses" &&
               pages.map(({ path, element }) => (
-                <Route exact path={path} element={element} />
+                <Route exact  path={path} element={element} />
               ))
           )}
         </Routes>
