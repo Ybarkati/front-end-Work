@@ -76,16 +76,15 @@ export const routes = [
         path: "/",
         element: <CoursesIndex />,
       },
-      
-      {
-        name: "edit",
-        path: "/edit",
-        element: <CourseEdit />,
-      },
       {
         name: "new",
         path: "/new",
         element: <NewCourses />,
+      },
+      {
+        name: "edit",
+        path: "/edit",
+        element: <CourseEdit />,
       },
       {
         
