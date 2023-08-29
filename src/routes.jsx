@@ -83,7 +83,7 @@ export const routes = [
       },
       {
         name: "edit",
-        path: "/edit",
+        path: "/:id/edit",
         element: <CourseEdit />,
       },
       {
