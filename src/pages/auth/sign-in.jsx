@@ -9,8 +9,22 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-
+import { useState } from "react";
+let emptyForm = { 
+  username: '',
+  password: '',
+  email: ''
+}
 export function SignIn() {
+  let [form, setForm] = useState(emptyForm)
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value })
+    }
+    const handleSubmit= async (e)=>{
+      
+    }
+    
   return (
     <>
       <img
@@ -30,14 +44,20 @@ export function SignIn() {
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
-            <Input type="email" label="Email" size="lg" />
-            <Input type="password" label="Password" size="lg" />
+            <Input type="username" label="Username" size="lg" id="username"
+                    name="username"
+                    onChange={handleChange}
+                    value={form.username} />
+            <Input type="password" label="Password" size="lg" id="password"
+                    name="password"
+                    onChange={handleChange}
+                    value={form.password} />
             <div className="-ml-2.5">
               <Checkbox label="Remember Me" />
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" fullWidth>
+            <Button variant="gradient" fullWidth onClick={()=>console.log(form)}>
               Sign In
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">

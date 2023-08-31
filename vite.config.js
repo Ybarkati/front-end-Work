@@ -6,4 +6,10 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
   },
+  server: {
+    proxy: {
+      '/api': 'http://localhost:1111',
+      '/authU': 'http://localhost:1111'
+    },
+  },
 });

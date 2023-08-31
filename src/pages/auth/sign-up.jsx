@@ -8,9 +8,31 @@ import {
   Checkbox,
   Button,
   Typography,
+  Select,
+  Option
 } from "@material-tailwind/react";
-
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+let emptyForm = { 
+  username: '',
+  password: '',
+  email: '',
+  role:'',
+  userID:''
+}
 export function SignUp() {
+
+  const navigate = useNavigate()
+
+    let [form, setForm] = useState(emptyForm)
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value })
+        
+    }
+  const handleSelectChange = (event) => {
+    setForm({ ...form, role: event,userID:"" })
+  };
   return (
     <>
       <img
@@ -30,15 +52,39 @@ export function SignUp() {
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
-            <Input label="Name" size="lg" />
-            <Input type="email" label="Email" size="lg" />
-            <Input type="password" label="Password" size="lg" />
+            <Input label="Username" size="lg" id="username"
+                    name="username"
+                    onChange={handleChange}
+                    value={form.username} />
+            <Input type="email" label="Email" size="lg"  id="email"
+                    name="email"
+                    onChange={handleChange}
+                    value={form.email}/>
+            <Input type="password" label="Password" size="lg"  id="password"
+                    name="password"
+                    onChange={handleChange}
+                    value={form.password} />
+            <div className="w-72">
+              <Select label="Select your role"    type="text" 
+                    id="role"
+                    name="role"
+                    onChange={handleSelectChange}
+                    value={form.role} >
+                 <Option value="teacher">I am a teacher</Option>
+                 <Option value="student">I am a student</Option>
+              </Select> 
+            </div>
+            {form.role=="student" && <Input label="Your Id Number" size="lg"   type="text" 
+                    id="userID"
+                    name="userID"
+                    onChange={handleChange}
+                    value={form.userID}/> }  
             <div className="-ml-2.5">
               <Checkbox label="I agree the Terms and Conditions" />
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" fullWidth>
+            <Button variant="gradient" fullWidth onClick={()=>console.log(form)}>
               Sign Up
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
